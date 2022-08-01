@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.cnki.tools</groupId>
@@ -62,32 +62,16 @@
         </plugins>
     </build>
 
-    <repositories>
+    <distributionManagement>
         <repository>
             <id>nexus</id>
             <name>Nexus Repository</name>
-            <url>http://10.120.66.207:18081/repository/maven-public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
+            <url>http://10.120.66.207:18081/repository/maven-releases/</url>
         </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
+        <snapshotRepository>
             <id>nexus</id>
-            <name>Nexus Plugin Repository</name>
-            <url>http://10.120.66.207:18081/repository/maven-public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </pluginRepository>
-    </pluginRepositories>
+            <name>Nexus Repository</name>
+            <url>http://10.120.66.207:18081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

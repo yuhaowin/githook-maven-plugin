@@ -47,17 +47,23 @@ public final class GitHookInstallMojo extends AbstractMojo {
             "pre-push");
 
     /**
+     * Whether the plugin should be skipped
+     */
+    @Parameter(name = "skip", property = "skip")
+    private boolean skip = false;
+
+    /**
      * The hooks that should be installed. For each map entry, the key must be a
      * valid Git hook name (see https://git-scm.com/docs/githooks#_hooks) and the
      * value is the script to install
      */
-    @Parameter(name = "hooks")
+    @Parameter(name = "hooks", property = "hooks")
     private Map<String, String> hooks;
 
     /**
      * external git hooks shell script
      */
-    @Parameter(name = "resource-hooks")
+    @Parameter(name = "resource-hooks", property = "resource-hooks")
     private Map<String, String> resourceHooks;
 
     /**
@@ -67,11 +73,6 @@ public final class GitHookInstallMojo extends AbstractMojo {
     @Parameter(defaultValue = "${project.build.directory}", required = true, readonly = true)
     private String buildDirectory;
 
-    /**
-     * Whether the plugin should be skipped
-     */
-    @Parameter(property = "githook.plugin.skip")
-    private boolean skip = false;
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
